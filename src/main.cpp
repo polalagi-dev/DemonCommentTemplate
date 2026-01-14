@@ -46,7 +46,7 @@ class $modify(HookedShareCommentLayer, ShareCommentLayer) {
 		if (menu == nullptr) return true;
 
 		auto button = CCMenuItemSpriteExtra::create(
-			ButtonSprite::create("Level Complete Comment Template", 0.6f),
+			ButtonSprite::create("Insert Template", 0.6f),
 			this,
 			menu_selector(HookedShareCommentLayer::onCommentTemplateButton)
 		);
@@ -112,7 +112,9 @@ class $modify(HookedShareCommentLayer, ShareCommentLayer) {
 
 		std::string currentText = static_cast<std::string>(m_descText);
 
-		m_commentInput->setString(currentText.append(replaced));
+		currentText.append(replaced);
+
+		m_commentInput->setString(currentText);
 		updateCharCountLabel();
 	}
 };

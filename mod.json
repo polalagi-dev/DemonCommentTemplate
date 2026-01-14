@@ -2,15 +2,13 @@
 	"geode": "4.10.0",
 	"gd": {
 		"win": "2.2074",
-		"android": "2.2074",
-		"mac": "2.2074",
-		"ios": "2.2074"
+		"android": "2.2074"
 	},
 	"id": "polalagi.demoncommenttemplate",
 	"name": "DemonCommentTemplate",
 	"version": "v1.0.0",
 	"developer": "polalagi",
-	"description": "",
+	"description": "Adds a comment template button on the comment menu for demon, weekly and daily levels.",
 	"dependencies": {
 		"geode.node-ids": ">=v1.20.0"
 	},

@@ -1,23 +1,10 @@
-# DemonCommentTemplate
-This is where she makes a mod.
+# Daily, Weekly & Demon Comment Templates
+This mods adds a comment template button to the comment menu for daily, weekly and demon levels.
 
-<img src="logo.png" width="150" alt="the mod's logo" />
+A comment template looks like this: `{attempts} Attempt(s), Demon #{demons}`
+- `{attempts}` - Gets replaced with the current attempt count on the level,
+- `{demons}` - Current amount of beaten demons *(only available on demon levels)*,
+- `{weekly}` - Current weekly # *(only available on weekly levels)*,
+- `{daily}` - Current daily # *(only available on daily levels)*
 
-*Update logo.png to change your mod's icon (please)*
-
-## Getting started
-We recommend heading over to [the getting started section on our docs](https://docs.geode-sdk.org/getting-started/) for useful info on what to do next.
-
-## Build instructions
-For more info, see [our docs](https://docs.geode-sdk.org/getting-started/create-mod#build)
-```sh
-# Assuming you have the Geode CLI set up already
-geode build
-```
-
-# Resources
-* [Geode SDK Documentation](https://docs.geode-sdk.org/)
-* [Geode SDK Source Code](https://github.com/geode-sdk/geode/)
-* [Geode CLI](https://github.com/geode-sdk/cli)
-* [Bindings](https://github.com/geode-sdk/bindings/)
-* [Dev Tools](https://github.com/geode-sdk/DevTools)
+Each one of the comment templates (demon, weekly, daily) can be changed in the mod's settings.

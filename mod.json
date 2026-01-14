@@ -33,5 +33,6 @@
 			"description": "Sets the comment template for daily levels.\n<cg>{attempts}</c> - Replaces with the amount of attempts on the level\n<cg>{daily}</c> - Replaces with the current amount of daily levels beaten.",
 			"default": "{attempts} Attempt(s), Daily #{daily}"
 		}
-	}
+	},
+	"tags": ["enhancement"]
 }

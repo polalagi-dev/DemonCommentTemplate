@@ -110,9 +110,9 @@ class $modify(HookedShareCommentLayer, ShareCommentLayer) {
 			}
 		}
 
-		std::string correct = replaced;
+		std::string currentText = static_cast<std::string>(m_descText);
 
-		m_commentInput->setString(m_descText + correct);
+		m_commentInput->setString(currentText.append(replaced));
 		updateCharCountLabel();
 	}
 };

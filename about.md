@@ -3,7 +3,7 @@ This mods adds a comment template button to the comment menu for daily, weekly a
 
 A comment template looks like this: `{attempts} Attempt(s), Demon #{demons}`
 
-- `{attempts}` - Replaced with the current attempt count on the level,
+- `{attempts}` - Replaced with the current attempt count on the level
 - `{demons}` - Current amount of beaten demons
 - `{weekly}` - Current weekly #
 - `{daily}` - Current daily #

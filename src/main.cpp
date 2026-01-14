@@ -101,10 +101,11 @@ class $modify(HookedShareCommentLayer, ShareCommentLayer) {
 		if (demon) {
 			auto* gameStatsManager = GameStatsManager::get();
 			auto* stats = gameStatsManager->m_playerStats;
-			auto* demonsObject = static_cast<CCString*>(stats->objectForKey("5")); // m_playerStats index for demons beaten
+			auto* demonsObject = stats->objectForKey("5"); // m_playerStats index for demons beaten
 			
 			if (demonsObject != nullptr) {
-				int demons = std::stoi(demonsObject->getCString());
+				auto* demonsString = static_cast<CCString*>(demonsObject);
+				int demons = std::stoi(demonsString->getCString());
 
 				replaced = replaceString(replaced, "{demons}", std::to_string(demons));
 			}

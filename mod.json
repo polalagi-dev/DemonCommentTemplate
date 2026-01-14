@@ -18,20 +18,23 @@
 		"template_demon": {
 			"type": "string",
 			"name": "Demon Comment Template",
-			"description": "Sets the comment template for demon levels.\n<cg>{attempts}</c> - Replaces with the amount of attempts on the level\n<cg>{demons}</c> - Replaces with the current amount of demons beaten.",
-			"default": "{attempts} Attempt(s), Demon #{demons}"
+			"match": "^.+",
+			"description": "Sets the comment template for demon levels.\n<cg>AttemptCount</c> - Replaces with the amount of attempts on the level\n<cg>DemonCount</c> - Replaces with the current amount of demons beaten.",
+			"default": "AttemptCount Attempts, Demon #DemonCount"
 		},
 		"template_weekly": {
 			"type": "string",
 			"name": "Weekly Comment Template",
-			"description": "Sets the comment template for weekly levels.\n<cg>{attempts}</c> - Replaces with the amount of attempts on the level\n<cg>{demons}</c> - Replaces with the current amount of demons beaten.\n<cg>{weekly}</c> - Replaces with the current amount of weekly levels beaten.",
-			"default": "{attempts} Attempt(s), Weekly #{weekly}, Demon #{demons}"
+			"match": "^.+",
+			"description": "Sets the comment template for weekly levels.\n<cg>AttemptCount</c> - Replaces with the amount of attempts on the level\n<cg>DemonCount</c> - Replaces with the current amount of demons beaten.\n<cg>WeeklyID</c> - Replaces with the current amount of weekly levels beaten.",
+			"default": "AttemptCount Attempts, Weekly #WeeklyID, Demon #DemonCount"
 		},
 		"template_daily": {
 			"type": "string",
 			"name": "Daily Comment Template",
-			"description": "Sets the comment template for daily levels.\n<cg>{attempts}</c> - Replaces with the amount of attempts on the level\n<cg>{daily}</c> - Replaces with the current amount of daily levels beaten.",
-			"default": "{attempts} Attempt(s), Daily #{daily}"
+			"match": "^.+",
+			"description": "Sets the comment template for daily levels.\n<cg>AttemptCount</c> - Replaces with the amount of attempts on the level\n<cg>DailyID</c> - Replaces with the current amount of daily levels beaten.",
+			"default": "AttemptCount Attempts, Daily #DailyID"
 		}
 	},
 	"tags": ["enhancement"]

@@ -89,13 +89,13 @@ class $modify(HookedShareCommentLayer, ShareCommentLayer) {
 
 		std::string commentTemplate = Mod::get()->getSettingValue<std::string>(templateName);
 
-		std::string replaced = replaceString(commentTemplate, "{attempts}", std::to_string(level->m_attempts));
+		std::string replaced = replaceString(commentTemplate, "AttemptCount", std::to_string(level->m_attempts));
 
 		if (weekly) {
-			replaced = replaceString(replaced, "{weekly}", std::to_string(dailyID - 100000));
+			replaced = replaceString(replaced, "WeeklyID", std::to_string(dailyID - 100000));
 		}
 		else if (daily) {
-			replaced = replaceString(replaced, "{daily}", std::to_string(dailyID));
+			replaced = replaceString(replaced, "DailyID", std::to_string(dailyID));
 		}
 
 		if (demon) {
@@ -107,7 +107,7 @@ class $modify(HookedShareCommentLayer, ShareCommentLayer) {
 				auto* demonsString = static_cast<CCString*>(demonsObject);
 				int demons = std::stoi(demonsString->getCString());
 
-				replaced = replaceString(replaced, "{demons}", std::to_string(demons));
+				replaced = replaceString(replaced, "DemonCount", std::to_string(demons));
 			}
 		}
 

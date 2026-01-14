@@ -9,3 +9,5 @@ A comment template looks like this: `{attempts} Attempt(s), Demon #{demons}`
 - `{daily}` - Current daily #
 
 Each one of the comment templates (demon, weekly, daily) can be changed in the mod's settings.
+
+![Preview](https://github.com/polalagi-dev/DemonCommentTemplate/blob/8c987d886ecd9a1c002a5de6846d245bc31e6310/preview.png)

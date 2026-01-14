@@ -1,7 +1,7 @@
 # Daily, Weekly & Demon Comment Templates
 This mods adds a comment template button to the comment menu for daily, weekly and demon levels.
 
-A comment template looks like this: `{attempts} Attempt(s), Demon #{demons}`
+A comment template looks like this: `AttemptCount Attempt(s), Demon #DemonCount`
 
 - `AttemptCount` - Replaced with the current attempt count on the level
 - `DemonCount` - Current amount of beaten demons

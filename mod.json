@@ -8,7 +8,7 @@
 	},
 	"id": "polalagi.demoncommenttemplate",
 	"name": "Comment Templates",
-	"version": "v1.0.0",
+	"version": "v1.0.1",
 	"developer": "polalagi",
 	"description": "Adds a comment template button on the comment menu for demon, weekly and daily levels.",
 	"dependencies": {

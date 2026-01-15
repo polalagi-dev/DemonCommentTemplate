@@ -31,7 +31,7 @@ class $modify(HookedShareCommentLayer, ShareCommentLayer) {
 		if (levelInfoLayer == nullptr) return true;
 
 		auto* level = levelInfoLayer->m_level;
-		CCLayer* layer = static_cast<CCLayer*>(this->getChildByIndex(0));
+		auto* layer = this->getChildByIndex(0);
 		
 		if (level == nullptr) return true;
 		if (layer == nullptr) return true;

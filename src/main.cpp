@@ -22,16 +22,16 @@ class $modify(HookedShareCommentLayer, ShareCommentLayer) {
 	bool init(gd::string title, int charLimit, CommentType type, int ID, gd::string desc) {
 		if (!ShareCommentLayer::init(title, charLimit, type, ID, desc)) return false;
 
-		auto* currentScene = CCScene::get();
+		auto currentScene = CCScene::get();
 
 		if (currentScene == nullptr) return true;
 
-		auto* levelInfoLayer = currentScene->getChildByType<LevelInfoLayer>(0);
+		auto levelInfoLayer = currentScene->getChildByType<LevelInfoLayer>(0);
 
 		if (levelInfoLayer == nullptr) return true;
 
-		auto* level = levelInfoLayer->m_level;
-		auto* layer = this->getChildByIndex(0);
+		auto level = levelInfoLayer->m_level;
+		auto layer = this->getChildByIndex(0);
 		
 		if (level == nullptr) return true;
 		if (layer == nullptr) return true;
@@ -51,7 +51,7 @@ class $modify(HookedShareCommentLayer, ShareCommentLayer) {
 			menu_selector(HookedShareCommentLayer::onCommentTemplateButton)
 		);
 
-		button->setPosition(-0.0f, -10.0f);
+		button->setPosition(0.0f, -10.0f);
 		button->setID("comment-template-btn"_spr);
 
 		menu->addChild(button);
@@ -75,7 +75,7 @@ class $modify(HookedShareCommentLayer, ShareCommentLayer) {
 
 		int dailyID = static_cast<int>(level->m_dailyID);
 		int stars = level->m_stars;
-		bool demon = stars >= 10;
+		bool demon = stars == 10;
 		bool daily = dailyID > 0;
 		bool weekly = daily && demon;
 		const char* templateName = "template_daily";
@@ -99,12 +99,12 @@ class $modify(HookedShareCommentLayer, ShareCommentLayer) {
 		}
 
 		if (demon) {
-			auto* gameStatsManager = GameStatsManager::get();
-			auto* stats = gameStatsManager->m_playerStats;
-			auto* demonsObject = stats->objectForKey("5"); // m_playerStats index for demons beaten
+			auto gameStatsManager = GameStatsManager::get();
+			auto stats = gameStatsManager->m_playerStats;
+			auto demonsObject = stats->objectForKey("5"); // m_playerStats index for demons beaten
 			
 			if (demonsObject != nullptr) {
-				auto* demonsString = static_cast<CCString*>(demonsObject);
+				auto demonsString = static_cast<CCString*>(demonsObject);
 				int demons = std::stoi(demonsString->getCString());
 
 				replaced = replaceString(replaced, "DemonCount", std::to_string(demons));

@@ -22,16 +22,16 @@ class $modify(HookedShareCommentLayer, ShareCommentLayer) {
 	bool init(gd::string title, int charLimit, CommentType type, int ID, gd::string desc) {
 		if (!ShareCommentLayer::init(title, charLimit, type, ID, desc)) return false;
 
-		auto* currentScene = CCScene::get();
+		auto currentScene = CCScene::get();
 
 		if (currentScene == nullptr) return true;
 
-		auto* levelInfoLayer = currentScene->getChildByType<LevelInfoLayer>(0);
+		auto levelInfoLayer = currentScene->getChildByType<LevelInfoLayer>(0);
 
 		if (levelInfoLayer == nullptr) return true;
 
-		auto* level = levelInfoLayer->m_level;
-		auto* layer = this->getChildByIndex(0);
+		auto level = levelInfoLayer->m_level;
+		auto layer = this->getChildByIndex(0);
 		
 		if (level == nullptr) return true;
 		if (layer == nullptr) return true;
@@ -41,7 +41,7 @@ class $modify(HookedShareCommentLayer, ShareCommentLayer) {
 
 		if ((dailyID == 0) && (stars < 10)) return true;
 
-		CCMenu* menu = layer->getChildByType<CCMenu>(0);
+		auto menu = layer->getChildByType<CCMenu>(0);
 
 		if (menu == nullptr) return true;
 
@@ -87,9 +87,9 @@ class $modify(HookedShareCommentLayer, ShareCommentLayer) {
 			templateName = "template_demon";
 		}
 
-		std::string commentTemplate = Mod::get()->getSettingValue<std::string>(templateName);
+		auto commentTemplate = Mod::get()->getSettingValue<std::string>(templateName);
 
-		std::string replaced = replaceString(commentTemplate, "AttemptCount", std::to_string(level->m_attempts));
+		auto replaced = replaceString(commentTemplate, "AttemptCount", std::to_string(level->m_attempts));
 
 		if (weekly) {
 			replaced = replaceString(replaced, "WeeklyID", std::to_string(dailyID - 100000));
@@ -99,19 +99,19 @@ class $modify(HookedShareCommentLayer, ShareCommentLayer) {
 		}
 
 		if (demon) {
-			auto* gameStatsManager = GameStatsManager::get();
-			auto* stats = gameStatsManager->m_playerStats;
-			auto* demonsObject = stats->objectForKey("5"); // m_playerStats index for demons beaten
+			auto gameStatsManager = GameStatsManager::get();
+			auto stats = gameStatsManager->m_playerStats;
+			auto demonsObject = stats->objectForKey("5"); // m_playerStats index for demons beaten
 			
 			if (demonsObject != nullptr) {
-				auto* demonsString = static_cast<CCString*>(demonsObject);
+				auto demonsString = static_cast<CCString*>(demonsObject);
 				int demons = std::stoi(demonsString->getCString());
 
 				replaced = replaceString(replaced, "DemonCount", std::to_string(demons));
 			}
 		}
 
-		std::string currentText = static_cast<std::string>(m_descText);
+		auto currentText = static_cast<std::string>(m_descText);
 
 		currentText.append(replaced);
 

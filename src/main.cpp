@@ -45,13 +45,28 @@ class $modify(HookedShareCommentLayer, ShareCommentLayer) {
 
 		if (menu == nullptr) return true;
 
+		bool useOldUI = Mod::get()->getSettingValue<bool>("use_old_ui");
+		CCSprite* buttonSprite = nullptr;
+
+		if (useOldUI) {
+			buttonSprite = ButtonSprite::create("Insert Template", 0.6f);
+		}
+		else {
+			buttonSprite = CCSprite::create("Button.png"_spr);
+			buttonSprite->setScale(0.75f);
+			buttonSprite->setColor({ 0, 0, 0 });
+			buttonSprite->setOpacity(105);
+		}
+
 		auto button = CCMenuItemSpriteExtra::create(
-			ButtonSprite::create("Insert Template", 0.6f),
+			buttonSprite,
 			this,
 			menu_selector(HookedShareCommentLayer::onCommentTemplateButton)
 		);
 
-		button->setPosition(-0.0f, -10.0f);
+		if (useOldUI) button->setPosition(0.0f, -10.0f);
+		else button->setPosition(133.0f, 36.5f);
+
 		button->setID("comment-template-btn"_spr);
 
 		menu->addChild(button);

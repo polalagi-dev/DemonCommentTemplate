@@ -99,16 +99,9 @@ class $modify(HookedShareCommentLayer, ShareCommentLayer) {
 		}
 
 		if (demon) {
-			auto gameStatsManager = GameStatsManager::get();
-			auto stats = gameStatsManager->m_playerStats;
-			auto demonsObject = stats->objectForKey("5"); // m_playerStats index for demons beaten
-			
-			if (demonsObject != nullptr) {
-				auto demonsString = static_cast<CCString*>(demonsObject);
-				int demons = std::stoi(demonsString->getCString());
+			int demons = GameStatsManager::sharedState()->getStat("5");
 
-				replaced = replaceString(replaced, "DemonCount", std::to_string(demons));
-			}
+			replaced = replaceString(replaced, "DemonCount", std::to_string(demons));
 		}
 
 		auto currentText = static_cast<std::string>(m_descText);

@@ -80,6 +80,8 @@ class $modify(HookedShareCommentLayer, ShareCommentLayer) {
 		bool weekly = daily && demon;
 		const char* templateName = "template_daily";
 
+		int collectedCoins = GameStatsManager::sharedState()->getCollectedCoinsForLevel(level);
+
 		if (weekly) {
 			templateName = "template_weekly";
 		}
@@ -103,6 +105,8 @@ class $modify(HookedShareCommentLayer, ShareCommentLayer) {
 
 			replaced = replaceString(replaced, "DemonCount", std::to_string(demons));
 		}
+
+		replaced = replaceString(replaced, "CoinCount", std::to_string(collectedCoins));
 
 		auto currentText = static_cast<std::string>(m_descText);
 

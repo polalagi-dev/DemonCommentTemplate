@@ -19,22 +19,22 @@
 			"type": "string",
 			"name": "Demon Comment Template",
 			"match": "^.+",
-			"description": "Sets the comment template for demon levels.\n<cg>AttemptCount</c> - Replaces with the amount of attempts on the level\n<cg>DemonCount</c> - Replaces with the current amount of demons beaten.",
-			"default": "AttemptCount Attempts, Demon #DemonCount"
+			"description": "Sets the comment template for demon levels.\n<cg>AttemptCount</c> - Replaces with the amount of attempts on the level\n<cg>DemonCount</c> - Replaces with the current amount of demons beaten.\n<cg>CoinCount</c> - Replaces with the amount of completed coins.",
+			"default": "AttemptCount Attempts, Demon #DemonCount, CoinCount Coins"
 		},
 		"template_weekly": {
 			"type": "string",
 			"name": "Weekly Comment Template",
 			"match": "^.+",
-			"description": "Sets the comment template for weekly levels.\n<cg>AttemptCount</c> - Replaces with the amount of attempts on the level\n<cg>DemonCount</c> - Replaces with the current amount of demons beaten.\n<cg>WeeklyID</c> - Replaces with the current amount of weekly levels beaten.",
-			"default": "AttemptCount Attempts, Weekly #WeeklyID, Demon #DemonCount"
+			"description": "Sets the comment template for weekly levels.\n<cg>AttemptCount</c> - Replaces with the amount of attempts on the level\n<cg>DemonCount</c> - Replaces with the current amount of demons beaten.\n<cg>WeeklyID</c> - Replaces with the current amount of weekly levels beaten.\n<cg>CoinCount</c> - Replaces with the amount of completed coins.",
+			"default": "AttemptCount Attempts, Weekly #WeeklyID, Demon #DemonCount, CoinCount Coins"
 		},
 		"template_daily": {
 			"type": "string",
 			"name": "Daily Comment Template",
 			"match": "^.+",
-			"description": "Sets the comment template for daily levels.\n<cg>AttemptCount</c> - Replaces with the amount of attempts on the level\n<cg>DailyID</c> - Replaces with the current amount of daily levels beaten.",
-			"default": "AttemptCount Attempts, Daily #DailyID"
+			"description": "Sets the comment template for daily levels.\n<cg>AttemptCount</c> - Replaces with the amount of attempts on the level\n<cg>DailyID</c> - Replaces with the current amount of daily levels beaten.\n<cg>CoinCount</c> - Replaces with the amount of completed coins.",
+			"default": "AttemptCount Attempts, Daily #DailyID, CoinCount Coins"
 		}
 	},
 	"tags": ["enhancement"]

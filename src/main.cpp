@@ -1,6 +1,5 @@
 #include <Geode/Geode.hpp>
 #include <Geode/modify/ShareCommentLayer.hpp>
-#include <string>
 
 using namespace geode::prelude;
 
@@ -67,7 +66,9 @@ class $modify(HookedShareCommentLayer, ShareCommentLayer) {
 		if (useOldUI) button->setPosition(0.0f, -10.0f);
 		else button->setPosition(133.0f, 36.5f);
 
-		button->setID("comment-template-btn"_spr);
+		if (Loader::get()->isModLoaded("geode.node-ids")) {
+			button->setID("comment-template-btn"_spr);
+		}
 
 		menu->addChild(button);
 

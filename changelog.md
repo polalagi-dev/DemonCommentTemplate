@@ -1,6 +1,6 @@
 # 1.0.4
 - Added GD 2.2081 & Geode v5 support
-- NodeIDs is now a **suggested dependency**, rather than a required one
+- NodeIDs is now an **optional dependency**, rather than a required one
 - Added some mod page links
 
 # 1.0.3

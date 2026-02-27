@@ -1,5 +1,5 @@
 {
-	"geode": "5.0.0-beta.1",
+	"geode": "5.1.0",
 	"gd": {
 		"win": "2.2081",
 		"android": "2.2081",
@@ -8,7 +8,7 @@
 	},
 	"id": "polalagi.demoncommenttemplate",
 	"name": "Comment Templates",
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"developer": "polalagi",
 	"description": "Adds a comment template button on the comment menu for demon, weekly and daily levels.",
 	"dependencies": {
@@ -26,21 +26,21 @@
 		"template_demon": {
 			"type": "string",
 			"name": "Demon Comment Template",
-			"match": "^.+",
+			"filter": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789:/.,-_#|",
 			"description": "Sets the comment template for demon levels.\n<cg>AttemptCount</c> - Replaces with the amount of attempts on the level\n<cg>DemonCount</c> - Replaces with the current amount of demons beaten.\n<cg>CoinCount</c> - Replaces with the amount of completed coins.",
 			"default": "AttemptCount Attempts, Demon #DemonCount, CoinCount Coins"
 		},
 		"template_weekly": {
 			"type": "string",
 			"name": "Weekly Comment Template",
-			"match": "^.+",
+			"filter": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789:/.,-_#|",
 			"description": "Sets the comment template for weekly levels.\n<cg>AttemptCount</c> - Replaces with the amount of attempts on the level\n<cg>DemonCount</c> - Replaces with the current amount of demons beaten.\n<cg>WeeklyID</c> - Replaces with the current amount of weekly levels beaten.\n<cg>CoinCount</c> - Replaces with the amount of completed coins.",
 			"default": "AttemptCount Attempts, Weekly #WeeklyID, Demon #DemonCount, CoinCount Coins"
 		},
 		"template_daily": {
 			"type": "string",
 			"name": "Daily Comment Template",
-			"match": "^.+",
+			"filter": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789:/.,-_#|",
 			"description": "Sets the comment template for daily levels.\n<cg>AttemptCount</c> - Replaces with the amount of attempts on the level\n<cg>DailyID</c> - Replaces with the current amount of daily levels beaten.\n<cg>CoinCount</c> - Replaces with the amount of completed coins.",
 			"default": "AttemptCount Attempts, Daily #DailyID, CoinCount Coins"
 		},

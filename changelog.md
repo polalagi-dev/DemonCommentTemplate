@@ -1,3 +1,7 @@
+# 1.0.5
+- Implemented proper string filter for settings
+- Removed `settings.json` guide
+
 # 1.0.4
 - Added GD 2.2081 & Geode v5 support
 - NodeIDs is now an **optional dependency**, rather than a required one

@@ -1,5 +1,5 @@
 {
-	"geode": "5.1.0",
+	"geode": "5.2.0",
 	"gd": {
 		"win": "2.2081",
 		"android": "2.2081",
@@ -8,7 +8,7 @@
 	},
 	"id": "polalagi.demoncommenttemplate",
 	"name": "Comment Templates",
-	"version": "1.0.5",
+	"version": "1.0.6",
 	"developer": "polalagi",
 	"description": "Adds a comment template button on the comment menu for demon, weekly and daily levels.",
 	"dependencies": {

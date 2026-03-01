@@ -1,3 +1,6 @@
+# 1.0.6
+- Code improvements
+
 # 1.0.5
 - Implemented proper string filter for settings
 - Removed `settings.json` guide

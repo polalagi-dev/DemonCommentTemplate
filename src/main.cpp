@@ -3,16 +3,6 @@
 
 using namespace geode::prelude;
 
-std::string replaceString(std::string original, std::string replace, std::string with) {
-	size_t pos = original.find(replace);
-
-	if (pos != std::string::npos) {
-		original.replace(pos, replace.length(), with);
-	}
-
-	return original;
-}
-
 class $modify(HookedShareCommentLayer, ShareCommentLayer) {
 	struct Fields {
 		GJGameLevel* m_level;
@@ -107,22 +97,22 @@ class $modify(HookedShareCommentLayer, ShareCommentLayer) {
 
 		auto commentTemplate = Mod::get()->getSettingValue<std::string>(templateName);
 
-		auto replaced = replaceString(commentTemplate, "AttemptCount", std::to_string(level->m_attempts));
+		auto replaced = utils::string::replace(commentTemplate, "AttemptCount", std::to_string(level->m_attempts));
 
 		if (weekly) {
-			replaced = replaceString(replaced, "WeeklyID", std::to_string(dailyID - 100000));
+			replaced = utils::string::replace(replaced, "WeeklyID", std::to_string(dailyID - 100000));
 		}
 		else if (daily) {
-			replaced = replaceString(replaced, "DailyID", std::to_string(dailyID));
+			replaced = utils::string::replace(replaced, "DailyID", std::to_string(dailyID));
 		}
 
 		if (demon) {
 			int demons = GameStatsManager::sharedState()->getStat("5");
 
-			replaced = replaceString(replaced, "DemonCount", std::to_string(demons));
+			replaced = utils::string::replace(replaced, "DemonCount", std::to_string(demons));
 		}
 
-		replaced = replaceString(replaced, "CoinCount", std::to_string(collectedCoins));
+		replaced = utils::string::replace(replaced, "CoinCount", std::to_string(collectedCoins));
 
 		auto currentText = static_cast<std::string>(m_descText);
 

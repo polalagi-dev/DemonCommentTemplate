@@ -1,3 +1,13 @@
+# 1.0.7
+- Added `Use Curly Braces` setting
+- Added `Quick Template Insert` setting
+- Added manual template insertion (when `Quick Template Insert` is **<cr>off</c>**)
+- Added `Supress Warning Popups` setting
+- Node IDs is a **<co>required dependency</c>** again
+- `CoinCount` variable fixed *(thanks to <cj>cvolton</c> for telling me about an alternative to `getCollectedCoinsForLevel`)*
+
+`CoinCount` was broken due to what I assume was a Geode bug, which broke the `getCollectedCoinsForLevel` method.
+
 # 1.0.6
 - Code improvements
 

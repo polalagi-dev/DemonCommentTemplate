@@ -268,7 +268,7 @@ class $modify(HookedShareCommentLayer, ShareCommentLayer) {
 
 		auto level = levelInfoLayer->m_level;
 		auto layer = this->getChildByIndex(0);
-		
+
 		if (level == nullptr) return true;
 		if (layer == nullptr) return true;
 
@@ -314,12 +314,12 @@ class $modify(HookedShareCommentLayer, ShareCommentLayer) {
 		return true;
 	}
 
-	void onCommentTemplateButton(CCObject* sender) {
+	void onCommentTemplateButton(CCObject * sender) {
 		auto level = m_fields->m_level;
 		bool beaten = level->getNormalPercent() == 100;
 
 		int dailyID = static_cast<int>(level->m_dailyID);
-		
+
 		bool isQuick = Mod::get()->getSettingValue<bool>("use_quick_insert");
 
 		if (isQuick) {

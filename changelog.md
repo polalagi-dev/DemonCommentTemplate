@@ -1,3 +1,6 @@
+# 1.1.0
+- Split project into separate categorized files
+
 # 1.0.7
 - Added `Use Curly Braces` setting
 - Added `Quick Template Insert` setting

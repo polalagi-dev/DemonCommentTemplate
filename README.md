@@ -1,5 +1,6 @@
-# Daily, Weekly & Demon Comment Templates
-**This mods adds a comment template button to the comment menu for daily, weekly and demon levels. Mainly intended for level grinders.**
+# 💬 Comment Templates
+## Mainly intended for level grinders.
+**This mods adds a comment template button to the comment menu for inserting comment templates.**
 
 A comment template looks like this: `AttemptCount Attempt(s), Demon #DemonCount`
 
@@ -9,8 +10,8 @@ A comment template looks like this: `AttemptCount Attempt(s), Demon #DemonCount`
 - `DailyID` - Current daily #
 - `CoinCount` - Amount of completed coins
 
-Each one of the comment templates (demon, weekly, daily) can be changed in the mod's settings.
+You can change (add, remove, or modify) the comment templates in the popup from the comment menu.
+
+Feel free to open a [Pull Request](https://github.com/polalagi-dev/DemonCommentTemplate/pulls) on the GitHub repository to help improve the mod! :D
 
 *The new UI is inspired by prevter's Comment Emojis Reloaded mod.*
-
-![Preview](https://github.com/polalagi-dev/DemonCommentTemplate/blob/8c987d886ecd9a1c002a5de6846d245bc31e6310/preview.png)

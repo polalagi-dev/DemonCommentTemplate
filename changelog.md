@@ -1,5 +1,7 @@
 # 1.1.0
-- Split project into separate categorized files
+- <cj>#</c> Changed the template system to allow adding of templates *(TODO)*
+- <cr>-</c> Removed old daily, weekly & demon template system *(TODO)*
+- <cg>+</c> Split project into separate categorized files
 
 # 1.0.7
 - Added `Use Curly Braces` setting
@@ -7,7 +9,7 @@
 - Added manual template insertion (when `Quick Template Insert` is **<cr>off</c>**)
 - Added `Supress Warning Popups` setting
 - Node IDs is a **<co>required dependency</c>** again
-- `CoinCount` variable fixed *(thanks to <cj>cvolton</c> for telling me about an alternative to `getCollectedCoinsForLevel`)*
+- `CoinCount` variable fixed *(thanks to [<c-00ddff>cvolton</c>](user:761691) for telling me about an alternative to `getCollectedCoinsForLevel`)*
 
 `CoinCount` was broken due to what I assume was a Geode bug, which broke the `getCollectedCoinsForLevel` method.
 

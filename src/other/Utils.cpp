@@ -1,6 +1,6 @@
 #include "Utils.hpp"
 
-std::string getReplacedTemplate(std::string templateName, GJGameLevel* level, int dailyID, int collectedCoins, int coinAmount, bool weekly, bool daily, bool demon) {
+std::string getReplacedTemplate(std::string stringToReplace, GJGameLevel* level, int dailyID, int collectedCoins, int coinAmount, bool weekly, bool daily, bool demon) {
 	bool useCurlyBraces = Mod::get()->getSettingValue<bool>("use_curly_braces");
 
 	std::string attemptCountVar = "AttemptCount";
@@ -17,9 +17,7 @@ std::string getReplacedTemplate(std::string templateName, GJGameLevel* level, in
 		coinCountVar = "{CoinCount}";
 	}
 
-	auto commentTemplate = Mod::get()->getSettingValue<std::string>(templateName);
-
-	auto replaced = utils::string::replace(commentTemplate, attemptCountVar, std::to_string(level->m_attempts));
+	auto replaced = utils::string::replace(stringToReplace, attemptCountVar, std::to_string(level->m_attempts));
 
 	if (weekly) {
 		replaced = utils::string::replace(replaced, weeklyIDVar, std::to_string(dailyID - 100000));
@@ -57,14 +55,4 @@ int getCollectedCoinsViaDict(GJGameLevel* level) {
 	}
 
 	return collectedCoins;
-}
-
-// TODO to be removed for v1.1.0
-
-ButtonSprite* createButtonSpriteForTemplate(const char* caption, bool recommended) {
-	return ButtonSprite::create(
-		caption,
-		"bigFont.fnt",
-		recommended ? "GJ_button_03.png" : "GJ_button_04.png"
-	);
 }

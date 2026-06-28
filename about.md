@@ -1,5 +1,6 @@
-# Daily, Weekly & Demon Comment Templates
-**This mods adds a comment template button to the comment menu for daily, weekly and demon levels. Mainly intended for level grinders.**
+# ![💬](frame:geode.loader/message.png) Comment Templates
+## <c-00ffdd>Mainly intended for </c><cj>level grinders</c><c-00ffdd>.</c>
+**This mods adds a comment template button to the comment menu for inserting comment templates.**
 
 A comment template looks like this: `AttemptCount Attempt(s), Demon #DemonCount`
 
@@ -11,4 +12,8 @@ A comment template looks like this: `AttemptCount Attempt(s), Demon #DemonCount`
 
 Each one of the comment templates (demon, weekly, daily) can be changed in the mod's settings.
 
-*The new UI is inspired by <cj>prevter</c>'s [Comment Emojis Reloaded](https://geode-sdk.org/mods/prevter.comment_emojis) mod.*
+Feel free to open a [Pull Request](https://github.com/polalagi-dev/DemonCommentTemplate/pulls) on the GitHub repository to help improve the mod! <cj>:D</c>
+
+*The new UI is inspired by [prevter](user:7696536)'s [<c-ffaa00>Comment Emojis Reloaded</c>](mod:prevter.comment_emojis) mod.*
+
+###### *made by [polalagi](user:36104700)!*

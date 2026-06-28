@@ -1,6 +1,10 @@
 # 1.0.8
-- Fixed bug where you were unable to type exclamation marks, quotation marks and spaces in the template fields
-- Added Geode v5.7.1 support
+- <cg>+</c> Added limited date & time template support ([Issue #1](https://github.com/polalagi-dev/DemonCommentTemplate/issues/1))
+- <cg>+</c> Added Geode v5.7.1 support
+- <cj>/</c> Improved about page
+- <cj>/</c> Fixed bug where you were unable to type exclamation marks, quotation marks and spaces in the template fields
+
+*new changelog format!*
 
 # 1.0.7
 - Added `Use Curly Braces` setting

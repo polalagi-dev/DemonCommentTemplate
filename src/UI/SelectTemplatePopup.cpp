@@ -2,79 +2,68 @@
 #include "../other/Utils.hpp"
 
 bool SelectTemplatePopup::init(GJGameLevel* level, ShareCommentLayer* commentLayer, int dailyID, bool beaten, bool daily, bool weekly) {
-	if (!Popup::init(320.0f, 220.0f)) return false;
-
-	bool demon = level->m_stars >= 10;
+	if (!Popup::init(415.0f, 90.0f)) return false;
 
 	this->m_level = level;
 	this->m_shareCommentLayer = commentLayer;
-	this->m_dailyID = dailyID;
-	this->m_beaten = beaten;
-	this->m_daily = daily;
-	this->m_weekly = weekly;
-	this->m_demon = demon;
+	this->dailyID = dailyID;
+	this->beaten = beaten;
 
-	const float padding = 10.0f;
+	auto layoutMenu = CCMenu::create();
+	auto layout = ColumnLayout::create();
 
-	auto mainWidth = this->m_mainLayer->getContentWidth();
-	auto mainHeight = this->m_mainLayer->getContentHeight();
+	bool demon = level->m_stars >= 10;
 
-	auto templateList = SelectTemplatePopup::createTemplateList(mainWidth, mainHeight, padding);
+	layout->setAxis(geode::Axis::Row);
+	layout->setGap(15);
+	layout->setGrowCrossAxis(true);
 
-	this->setTitle("Template Manager");
+	layoutMenu->setLayout(layout);
+	layoutMenu->setID("template-list"_spr);
+
+	auto dailyButton = CCMenuItemSpriteExtra::create(
+		createButtonSpriteForTemplate("Daily", daily && !weekly),
+		this,
+		menu_selector(SelectTemplatePopup::onTemplateButton)
+	);
+
+	auto weeklyButton = CCMenuItemSpriteExtra::create(
+		createButtonSpriteForTemplate("Weekly", weekly),
+		this,
+		menu_selector(SelectTemplatePopup::onTemplateButton)
+	);
+
+	auto demonButton = CCMenuItemSpriteExtra::create(
+		createButtonSpriteForTemplate("Demon", (demon && !weekly)),
+		this,
+		menu_selector(SelectTemplatePopup::onTemplateButton)
+	);
+
+	dailyButton->setID("template-daily-btn"_spr);
+	weeklyButton->setID("template-weekly-btn"_spr);
+	demonButton->setID("template-demon-btn"_spr);
+
+	dailyButton->setTag(1);
+	weeklyButton->setTag(2);
+	demonButton->setTag(3);
+
+	layoutMenu->addChild(dailyButton);
+	layoutMenu->addChild(weeklyButton);
+	layoutMenu->addChild(demonButton);
+
+	this->setTitle("Select Template");
 	this->setID("select-template-popup"_spr);
-	this->m_mainLayer->addChild(templateList);
-	this->m_mainLayer->setPositionY(130.0f);
+	this->m_mainLayer->addChild(layoutMenu);
+	this->m_mainLayer->setPositionY(100.0f);
+	this->m_buttonMenu = layoutMenu;
 
-	templateList->setID("template-list"_spr);
+	layoutMenu->updateLayout();
+	layoutMenu->setPosition(
+		this->m_mainLayer->getContentWidth() / 2.0f,
+		this->m_mainLayer->getContentHeight() / 2.0f - 12.0f
+	);
 
 	return true;
-}
-
-CCMenu* SelectTemplatePopup::createTemplateListEntry(std::string commentTemplate, std::string name, TemplateColor color, float parentWidth, float padding) {
-	auto entry = CCMenu::create();
-	auto background = NineSlice::create("square02_001.png");
-
-	entry->setPosition({ padding, padding });
-	entry->setContentSize({ parentWidth * 0.5f - padding * 2.0f, 20.0f });
-
-	background->setScale(0.5f);
-	background->setContentSize({ entry->getContentWidth() * 2.0f, entry->getContentHeight() * 2.0f });
-	background->setAnchorPoint({ 0, 0 });
-	background->setOpacity(60);
-
-	entry->addChild(background);
-
-	return entry;
-}
-
-CCMenu* SelectTemplatePopup::createTemplateList(float parentWidth, float parentHeight, float padding) {
-	auto list = CCMenu::create();
-	auto background = NineSlice::create("square02_001.png");
-
-	list->setPosition({ padding, padding });
-	list->setContentSize({ parentWidth - padding * 2.0f, parentHeight - padding * 4.5f });
-
-	background->setScale(0.5f);
-	background->setContentSize({ list->getContentWidth() * 2.0f, list->getContentHeight() * 2.0f });
-	background->setAnchorPoint({ 0, 0 });
-	background->setOpacity(60);
-
-	auto scroll = geode::ScrollLayer::create(list->getContentSize(), true, true);
-
-	scroll->setLayout(geode::ScrollLayer::createDefaultListLayout());
-
-	list->addChild(background);
-	list->addChild(scroll);
-	scroll->m_contentLayer->addChild(SelectTemplatePopup::createTemplateListEntry("a", "b", TemplateColor::Teal, list->getContentWidth(), 2.5f));
-	scroll->updateLayout();
-	scroll->scrollToTop();
-	scroll->setContentHeight(200.0f);
-	scroll->setID("template-list-scroll-layer"_spr);
-
-	list->updateLayout();
-
-	return list;
 }
 
 void SelectTemplatePopup::errorAndClose(gd::string errorText) {
@@ -88,6 +77,14 @@ void SelectTemplatePopup::errorAndClose(gd::string errorText) {
 }
 
 void SelectTemplatePopup::onTemplateButton(CCObject* sender) {
+	int tag = sender->getTag();
+
+	if ((tag < 1) || (tag > 3)) {
+		this->errorAndClose("<cr>Invalid</c> template button tag.");
+
+		return;
+	}
+
 	auto level = this->m_level;
 	auto commentLayer = this->m_shareCommentLayer;
 
@@ -97,20 +94,33 @@ void SelectTemplatePopup::onTemplateButton(CCObject* sender) {
 		return;
 	}
 
-	bool daily = this->m_daily;
-	bool weekly = this->m_weekly;
-	bool demon = this->m_demon;
+	bool daily = tag == 1;
+	bool weekly = tag == 2;
+	bool demon = tag == 3;
 
-	bool beaten = this->m_beaten;
+	bool beaten = this->beaten;
 
 	bool supressPopup = Mod::get()->getSettingValue<bool>("supress_warnings");
 
 	int collectedCoins = getCollectedCoinsViaDict(level);
 
+	std::string templateName = "template_daily";
+
+	switch (tag) {
+	case 2:
+		templateName = "template_weekly";
+		break;
+	case 3:
+		templateName = "template_demon";
+		break;
+	default:
+		break;
+	}
+
 	std::string textToAppend = getReplacedTemplate(
-		"?",
+		templateName,
 		level,
-		this->m_dailyID,
+		this->dailyID,
 		collectedCoins,
 		level->m_coins,
 		weekly,

@@ -1,3 +1,6 @@
+# 1.0.9
+- <cr>-</c> Removed try-catch statements
+
 # 1.0.8
 - <cg>+</c> Added limited date & time template support ([Issue #1](https://github.com/polalagi-dev/DemonCommentTemplate/issues/1))
 - <cg>+</c> Added Geode v5.7.1 support

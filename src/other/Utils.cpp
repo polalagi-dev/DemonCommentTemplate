@@ -57,59 +57,39 @@ std::string getReplacedTemplate(std::string templateName, GJGameLevel* level, in
 
 	replaced = utils::string::replace(replaced, coinCountVar, (coinAmount > 0) ? std::to_string(collectedCoins) : "N/A");
 
-	try {
-		auto now = time(nullptr);
-		auto localTime = std::localtime(&now);
-		auto day = std::to_string(localTime->tm_mday);
-		auto month = std::to_string(localTime->tm_mon + 1);
-		auto monthName = MONTH_NAMES[localTime->tm_mon];
-		auto year = std::to_string(localTime->tm_year + 1900);
-		auto hour24 = std::to_string(localTime->tm_hour);
-		auto hour12i = localTime->tm_hour;
-		auto ampm = "AM";
-		auto minute = std::to_string(localTime->tm_min);
-		auto second = std::to_string(localTime->tm_sec);
+	auto now = time(nullptr);
+	auto localTime = std::localtime(&now);
+	auto day = std::to_string(localTime->tm_mday);
+	auto month = std::to_string(localTime->tm_mon + 1);
+	auto monthName = MONTH_NAMES[localTime->tm_mon];
+	auto year = std::to_string(localTime->tm_year + 1900);
+	auto hour24 = std::to_string(localTime->tm_hour);
+	auto hour12i = localTime->tm_hour;
+	auto ampm = "AM";
+	auto minute = std::to_string(localTime->tm_min);
+	auto second = std::to_string(localTime->tm_sec);
 
-		if (hour12i > 12) {
-			ampm = "PM";
-			hour12i -= 12;
-		}
-
-		if (hour12i == 0) {
-			ampm = "AM";
-			hour12i = 12;
-		}
-
-		std::string hour12 = std::to_string(hour12i);
-
-		replaced = utils::string::replace(replaced, timeDayVar, day);
-		replaced = utils::string::replace(replaced, timeMonthVar, month);
-		replaced = utils::string::replace(replaced, timeMonthNameVar, monthName);
-		replaced = utils::string::replace(replaced, timeYearVar, year);
-		replaced = utils::string::replace(replaced, timeH12Var, hour12);
-		replaced = utils::string::replace(replaced, timeH24Var, hour24);
-		replaced = utils::string::replace(replaced, timeMVar, minute);
-		replaced = utils::string::replace(replaced, timeSVar, second);
-		replaced = utils::string::replace(replaced, timeAMPMVar, ampm);
+	if (hour12i > 12) {
+		ampm = "PM";
+		hour12i -= 12;
 	}
-	catch (const std::runtime_error& ex) {
-		try {
-			std::string errorText = (std::string)"Failed to insert time info due to C++ runtime error: " + (std::string)ex.what();
 
-			FLAlertLayer::create(
-				"Error",
-				errorText,
-				"Ok"
-			)->show();
-		}
-		catch (const std::exception& ex) {
-			FLAlertLayer::create(
-				"Error",
-				"C++ error",
-				"Ok"
-			)->show();
-		}
+	if (hour12i == 0) {
+		ampm = "AM";
+		hour12i = 12;
 	}
+
+	std::string hour12 = std::to_string(hour12i);
+
+	replaced = utils::string::replace(replaced, timeDayVar, day);
+	replaced = utils::string::replace(replaced, timeMonthVar, month);
+	replaced = utils::string::replace(replaced, timeMonthNameVar, monthName);
+	replaced = utils::string::replace(replaced, timeYearVar, year);
+	replaced = utils::string::replace(replaced, timeH12Var, hour12);
+	replaced = utils::string::replace(replaced, timeH24Var, hour24);
+	replaced = utils::string::replace(replaced, timeMVar, minute);
+	replaced = utils::string::replace(replaced, timeSVar, second);
+	replaced = utils::string::replace(replaced, timeAMPMVar, ampm);
 
 	return replaced;
 }

@@ -1,3 +1,7 @@
+# 1.0.8
+- Fixed bug where you were unable to type exclamation marks, quotation marks and spaces in the template fields
+- Added Geode v5.7.1 support
+
 # 1.0.7
 - Added `Use Curly Braces` setting
 - Added `Quick Template Insert` setting

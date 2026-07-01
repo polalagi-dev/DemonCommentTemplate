@@ -1,3 +1,9 @@
+# 1.0.10
+- <cg>+</c> Added `TimeMonthName` (long month name) and `TimeDaySuffix` (1**st**, 2**nd**, etc)
+- <cj>/</c> Fixed bug where minutes and seconds could appear as single digits
+
+*sorry for the buggy v1.0.9 update*
+
 # 1.0.9
 - <cr>-</c> Removed try-catch statements
 

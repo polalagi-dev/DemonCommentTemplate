@@ -11,6 +11,7 @@ A comment template looks like this: `AttemptCount Attempt(s), Demon #DemonCount`
 - `CoinCount` - Amount of completed coins
 
 Each one of the comment templates (demon, weekly, daily) can be changed in the mod's settings.
+
 Remember to check your comment before posting it to make sure all of the fields have been replaced, as they may not be replaced sometimes. *(e.g. using `DailyID` on a non-daily level)*
 
 Feel free to open a [Pull Request](https://github.com/polalagi-dev/DemonCommentTemplate/pulls) on the GitHub repository to help improve the mod! <cj>:D</c>

@@ -1,4 +1,4 @@
-## 1.0.10
+# 1.0.10
 - <cg>+</c> Added `TimeMonthName` (long month name) and `TimeDaySuffix` (1**st**, 2**nd**, etc) ([Issue #3](https://github.com/polalagi-dev/DemonCommentTemplate/issues/3))
 - <cj>/</c> Fixed bug where hours, minutes and seconds could appear as single digits ([Issue #4](https://github.com/polalagi-dev/DemonCommentTemplate/issues/4))
 - <cj>/</c> Minor bug fixes & changes

@@ -76,9 +76,6 @@ std::string getReplacedTemplate(std::string templateName, GJGameLevel* level, in
 	auto minute = std::to_string(localTime->tm_min);
 	auto second = std::to_string(localTime->tm_sec);
 
-	if (second.length() < 2) second = "0" + second;
-	if (minute.length() < 2) minute = "0" + minute;
-
 	if (hour12i > 12) {
 		ampm = "PM";
 		hour12i -= 12;
@@ -104,6 +101,11 @@ std::string getReplacedTemplate(std::string templateName, GJGameLevel* level, in
 	}
 
 	std::string hour12 = std::to_string(hour12i);
+
+	if (second.length() < 2) second = "0" + second;
+	if (minute.length() < 2) minute = "0" + minute;
+	if (hour12.length() < 2) hour12 = "0" + hour12;
+	if (hour24.length() < 2) hour24 = "0" + hour24;
 
 	replaced = utils::string::replace(replaced, timeDaySuffixVar, daySuffix);
 	replaced = utils::string::replace(replaced, timeDayVar, day);

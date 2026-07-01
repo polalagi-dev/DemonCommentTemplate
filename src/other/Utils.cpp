@@ -1,6 +1,7 @@
 #include "Utils.hpp"
 
-const std::string MONTH_NAMES[12] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+const std::string SHORT_MONTH_NAMES[12] = { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+const std::string MONTH_NAMES[12] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
 
 std::string getReplacedTemplate(std::string templateName, GJGameLevel* level, int dailyID, int collectedCoins, int coinAmount, bool weekly, bool daily, bool demon) {
 	bool useCurlyBraces = Mod::get()->getSettingValue<bool>("use_curly_braces");
@@ -16,8 +17,10 @@ std::string getReplacedTemplate(std::string templateName, GJGameLevel* level, in
 	std::string timeMVar = "TimeM";
 	std::string timeSVar = "TimeS";
 	std::string timeDayVar = "TimeDay";
+	std::string timeDaySuffixVar = "TimeDaySuffix";
 	std::string timeMonthVar = "TimeMonth";
 	std::string timeMonthNameVar = "TimeMonName";
+	std::string timeMonthNameLongVar = "TimeMonthName";
 	std::string timeYearVar = "TimeYear";
 	std::string timeAMPMVar = "TimeAMPM";
 
@@ -32,8 +35,10 @@ std::string getReplacedTemplate(std::string templateName, GJGameLevel* level, in
 		timeMVar = "{TimeM}";
 		timeSVar = "{TimeS}";
 		timeDayVar = "{TimeDay}";
+		timeDaySuffixVar = "{TimeDaySuffix}";
 		timeMonthVar = "{TimeMonth}";
 		timeMonthNameVar = "{TimeMonName}";
+		timeMonthNameLongVar = "{TimeMonthName}";
 		timeYearVar = "{TimeYear}";
 		timeAMPMVar = "{TimeAMPM}";
 	}
@@ -60,7 +65,9 @@ std::string getReplacedTemplate(std::string templateName, GJGameLevel* level, in
 	auto now = time(nullptr);
 	auto localTime = std::localtime(&now);
 	auto day = std::to_string(localTime->tm_mday);
+	auto daySuffix = "";
 	auto month = std::to_string(localTime->tm_mon + 1);
+	auto shortMonthName = SHORT_MONTH_NAMES[localTime->tm_mon];
 	auto monthName = MONTH_NAMES[localTime->tm_mon];
 	auto year = std::to_string(localTime->tm_year + 1900);
 	auto hour24 = std::to_string(localTime->tm_hour);
@@ -68,6 +75,9 @@ std::string getReplacedTemplate(std::string templateName, GJGameLevel* level, in
 	auto ampm = "AM";
 	auto minute = std::to_string(localTime->tm_min);
 	auto second = std::to_string(localTime->tm_sec);
+
+	if (second.length() < 2) second = "0" + second;
+	if (minute.length() < 2) minute = "0" + minute;
 
 	if (hour12i > 12) {
 		ampm = "PM";
@@ -79,11 +89,27 @@ std::string getReplacedTemplate(std::string templateName, GJGameLevel* level, in
 		hour12i = 12;
 	}
 
+	switch (localTime->tm_mday % 10) {
+		case 1:
+			daySuffix = "st";
+			break;
+		case 2:
+			daySuffix = "nd";
+			break;
+		case 3:
+			daySuffix = "rd";
+			break;
+		default:
+			daySuffix = "th";
+	}
+
 	std::string hour12 = std::to_string(hour12i);
 
+	replaced = utils::string::replace(replaced, timeDaySuffixVar, daySuffix);
 	replaced = utils::string::replace(replaced, timeDayVar, day);
+	replaced = utils::string::replace(replaced, timeMonthNameLongVar, monthName);
 	replaced = utils::string::replace(replaced, timeMonthVar, month);
-	replaced = utils::string::replace(replaced, timeMonthNameVar, monthName);
+	replaced = utils::string::replace(replaced, timeMonthNameVar, shortMonthName);
 	replaced = utils::string::replace(replaced, timeYearVar, year);
 	replaced = utils::string::replace(replaced, timeH12Var, hour12);
 	replaced = utils::string::replace(replaced, timeH24Var, hour24);

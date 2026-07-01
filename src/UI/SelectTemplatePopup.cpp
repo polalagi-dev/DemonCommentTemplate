@@ -137,14 +137,7 @@ void SelectTemplatePopup::onTemplateButton(CCObject* sender) {
 
 	if (!supressPopup)
 	{
-		if (beaten) {
-			FLAlertLayer::create(
-				"Warning",
-				"<cy>Not all variables may have been replaced</c>.",
-				"Ok"
-			)->show();
-		}
-		else {
+		if (!beaten) {
 			FLAlertLayer::create(
 				"Warning",
 				"<cy>Not all variables may have been replaced</c>. You have also <cr>not completed this level yet</c>.",

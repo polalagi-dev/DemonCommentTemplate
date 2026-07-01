@@ -68,11 +68,11 @@ class SyntaxButtonNode : public SettingNodeV3 {
     void onButton(CCObject*) {
         auto alert = FLAlertLayer::create(
             "Template Syntax",
-            "<cg>AttemptCount</c> - Replaces with the amount of attempts on the level\n<cg>DemonCount</c> - Replaces with the current amount of demons beaten.\n<cg>DailyID</c> - Replaces with the current amount of daily levels beaten.\n<cg>WeeklyID</c> - Replaces with the current amount of weekly levels beaten.\n<cg>CoinCount</c> - Replaces with the amount of completed coins. N/A if the levels doesn't have coins.\n<cg>TimeH12, TimeH24, TimeM, TimeS, TimeAMPM, TimeDay, TimeMonth, TimeMonName, TimeYear</c> - 12-Hour Hour, 24-Hour Hour, Minute, Second, AM/PM, Day, Month, Short Month Name, Year (Local Time)",
+            "<cg>AttemptCount</c> - Replaces with the amount of attempts on the level\n<cg>DemonCount</c> - Replaces with the current amount of demons beaten.\n<cg>DailyID</c> - Replaces with the current amount of daily levels beaten.\n<cg>WeeklyID</c> - Replaces with the current amount of weekly levels beaten.\n<cg>CoinCount</c> - Replaces with the amount of completed coins. N/A if the levels doesn't have coins.\n<cg>TimeH12, TimeH24, TimeM, TimeS, TimeAMPM, TimeDay, TimeDaySuffix, TimeMonth, TimeMonName, TimeMonthName, TimeYear</c> - 12-Hour Hour, 24-Hour Hour, Minute, Second, AM/PM, Day, Day Suffix (1st, 2nd, etc), Month, Short Month Name, Long Month Name, Year (Local Time)",
             "Ok"
         );
 
-        alert->setScale(0.7f);
+        alert->setScale(0.65f);
         alert->setOpacity(0);
 
         alert->show();

@@ -1,13 +1,14 @@
-# 1.0.10
-- <cg>+</c> Added `TimeMonthName` (long month name) and `TimeDaySuffix` (1**st**, 2**nd**, etc)
-- <cj>/</c> Fixed bug where minutes and seconds could appear as single digits
+## 1.0.10
+- <cg>+</c> Added `TimeMonthName` (long month name) and `TimeDaySuffix` (1**st**, 2**nd**, etc) ([Issue #3](https://github.com/polalagi-dev/DemonCommentTemplate/issues/3))
+- <cj>/</c> Fixed bug where hours, minutes and seconds could appear as single digits ([Issue #4](https://github.com/polalagi-dev/DemonCommentTemplate/issues/4))
+- <cj>/</c> Minor bug fixes & changes
 
-*sorry for the buggy v1.0.9 update*
+*sorry for the buggy v1.0.9 update :(*
 
-# 1.0.9
+## 1.0.9
 - <cr>-</c> Removed try-catch statements
 
-# 1.0.8
+## 1.0.8
 - <cg>+</c> Added limited date & time template support ([Issue #1](https://github.com/polalagi-dev/DemonCommentTemplate/issues/1))
 - <cg>+</c> Added Geode v5.7.1 support
 - <cj>/</c> Improved about page
@@ -15,7 +16,7 @@
 
 *new changelog format!*
 
-# 1.0.7
+## 1.0.7
 - Added `Use Curly Braces` setting
 - Added `Quick Template Insert` setting
 - Added manual template insertion (when `Quick Template Insert` is **<cr>off</c>**)
@@ -25,29 +26,29 @@
 
 `CoinCount` was broken due to what I assume was a Geode bug, which broke the `getCollectedCoinsForLevel` method.
 
-# 1.0.6
+## 1.0.6
 - Code improvements
 
-# 1.0.5
+## 1.0.5
 - Implemented proper string filter for settings
 - Removed `settings.json` guide
 
-# 1.0.4
+## 1.0.4
 - Added GD 2.2081 & Geode v5 support
 - NodeIDs is now an **optional dependency**, rather than a required one
 - Added some mod page links
 
-# 1.0.3
+## 1.0.3
 - Code improvements
 - Added `CoinCount` template replacement
 - Improved UI (Inspired by prevter's Comment Emojis Reloaded)
 
-# 1.0.2
+## 1.0.2
 - Added `settings.json` guide to the about page
 
-# 1.0.1
+## 1.0.1
 - Bug fixes
 - Changed template replacement strings, e.g. `{attempts}` to `AttemptCount` (case sensitive)
 
-# 1.0.0
+## 1.0.0
 - First release

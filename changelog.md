@@ -1,3 +1,6 @@
+# 1.0.11
+- <cg>+</c> Added Geode v6.0.0-beta.1 & GD v2.2091 support
+
 # 1.0.10
 - <cg>+</c> Added `TimeMonthName` (long month name) and `TimeDaySuffix` (1**st**, 2**nd**, etc) ([Issue #3](https://github.com/polalagi-dev/DemonCommentTemplate/issues/3))
 - <cj>/</c> Fixed bug where hours, minutes and seconds could appear as single digits ([Issue #4](https://github.com/polalagi-dev/DemonCommentTemplate/issues/4))

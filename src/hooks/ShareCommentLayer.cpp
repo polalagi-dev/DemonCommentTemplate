@@ -8,7 +8,7 @@ class $modify(HookedShareCommentLayer, ShareCommentLayer) {
 		GJGameLevel* m_level;
 	};
 
-	bool init(gd::string title, int charLimit, CommentType type, int ID, gd::string desc) {
+	bool init(std::string title, int charLimit, CommentType type, int ID, std::string desc) {
 		if (!ShareCommentLayer::init(title, charLimit, type, ID, desc)) return false;
 
 		auto currentScene = CCScene::get();

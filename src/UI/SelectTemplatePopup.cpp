@@ -66,7 +66,7 @@ bool SelectTemplatePopup::init(GJGameLevel* level, ShareCommentLayer* commentLay
 	return true;
 }
 
-void SelectTemplatePopup::errorAndClose(gd::string errorText) {
+void SelectTemplatePopup::errorAndClose(std::string errorText) {
 	FLAlertLayer::create(
 		"Error",
 		errorText,

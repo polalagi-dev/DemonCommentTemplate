@@ -12,7 +12,7 @@ class SelectTemplatePopup : public geode::Popup {
 
 protected:
 	bool init(GJGameLevel* level, ShareCommentLayer* commentLayer, int dailyID, bool beaten, bool daily, bool weekly);
-	void errorAndClose(gd::string errorText);
+	void errorAndClose(std::string errorText);
 	void onTemplateButton(CCObject* sender);
 
 public:

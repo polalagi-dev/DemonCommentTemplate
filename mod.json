@@ -1,14 +1,12 @@
 {
-	"geode": "6.0.0-beta.1",
+	"geode": "6.0.0",
 	"gd": {
 		"win": "2.2091",
-		"android": "2.2091",
-		"mac": "2.2091",
-		"ios": "2.2091"
+		"android": "2.2091"
 	},
 	"id": "polalagi.demoncommenttemplate",
 	"name": "Comment Templates",
-	"version": "1.0.11",
+	"version": "1.0.11-beta.1",
 	"developer": "polalagi",
 	"description": "Adds a comment template button on the comment menu for demon, weekly and daily levels.",
 	"dependencies": {

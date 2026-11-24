@@ -1,5 +1,6 @@
-# 1.0.11
+# 1.0.11-beta.1
 - <cg>+</c> Added Geode v6.0.0-beta.1 & GD v2.2091 support
+- <cr>-</c> Temporarily removed MacOS & iOS support due to lack of `ShareCommentLayer` bindings for those platforms
 
 # 1.0.10
 - <cg>+</c> Added `TimeMonthName` (long month name) and `TimeDaySuffix` (1**st**, 2**nd**, etc) ([Issue #3](https://github.com/polalagi-dev/DemonCommentTemplate/issues/3))

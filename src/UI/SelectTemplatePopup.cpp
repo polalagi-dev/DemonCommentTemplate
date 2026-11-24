@@ -73,7 +73,7 @@ void SelectTemplatePopup::errorAndClose(std::string errorText) {
 		"Ok"
 	)->show();
 
-	this->removeMeAndCleanup();
+	this->onClose(nullptr);
 }
 
 void SelectTemplatePopup::onTemplateButton(CCObject* sender) {
@@ -128,7 +128,7 @@ void SelectTemplatePopup::onTemplateButton(CCObject* sender) {
 		demon || (level->m_stars >= 10)
 	);
 
-	auto currentText = static_cast<std::string>(commentLayer->m_descText);
+	auto currentText = commentLayer->m_commentInput->getString();
 
 	currentText.append(textToAppend);
 
@@ -146,7 +146,7 @@ void SelectTemplatePopup::onTemplateButton(CCObject* sender) {
 		}
 	}
 
-	this->removeMeAndCleanup();
+	this->onClose(nullptr);
 }
 
 SelectTemplatePopup* SelectTemplatePopup::create(GJGameLevel* level, ShareCommentLayer* commentLayer, int dailyID, bool beaten, bool daily, bool weekly) {

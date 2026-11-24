@@ -101,7 +101,7 @@ class $modify(HookedShareCommentLayer, ShareCommentLayer) {
 				templateName = "template_demon";
 			}
 
-			auto currentText = static_cast<std::string>(m_descText);
+			auto currentText = m_commentInput->getString();
 
 			currentText.append(
 				getReplacedTemplate(
